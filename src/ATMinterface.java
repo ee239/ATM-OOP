@@ -4,7 +4,7 @@ public class ATMinterface {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Person mike = new Person("Mike",1234);
+		//Person mike = new Person("Mike",1234);
 		bankAccount.init_accounts();
 		
 		bankAccount account = null;
@@ -39,16 +39,27 @@ public class ATMinterface {
 		switch (selection) {
 		case 1: 
 			//code
-			System.out.println("Please enter how much money you are inserting and then insert it");
-			double d = scanner.nextDouble();
-			account.deposit(d);
+			try {
+					System.out.println("Please enter how much money you are inserting and then insert it");
+					double d = scanner.nextDouble();
+			account.deposit(d);}
+			catch(Exception e) {
+				scanner.next();
+				System.out.println("Error");
+				continue;
+			}
 			break;
 		case 2:
 			//code
+			try {
 			System.out.println("Please enter how much money you are withdrawing");
 			double x = scanner.nextDouble();
-			x = account.withdraw(x);
-			System.out.println("Please take you money");
+			x = account.withdraw(x);System.out.println("Please take you money");}
+			catch(Exception e) {
+				scanner.next();
+				System.out.println("Error");
+				continue;
+			}
 			break;
 		case 3:
 			System.out.println("Your balance is: " + account.checkBalance());
@@ -64,7 +75,10 @@ public class ATMinterface {
 		//System.out.print(pin);
 		
 	}
-	}
+		
+	
+	
+}
 
 	
 	
